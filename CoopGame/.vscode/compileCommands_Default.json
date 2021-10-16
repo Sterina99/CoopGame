@@ -1,0 +1,27 @@
+[
+	{
+		"file": "D:\\\\Private\\\\LearningC++\\\\CoopGame\\\\CoopGame\\\\Source\\\\CoopGame\\\\CoopGame.Build.cs",
+		"command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe @\"D:\\Private\\LearningC++\\CoopGame\\CoopGame\\.vscode\\compileCommands_Default\\CoopGame.210.rsp\"",
+		"directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Private\\\\LearningC++\\\\CoopGame\\\\CoopGame\\\\Source\\\\CoopGame\\\\CoopGame.cpp",
+		"command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe @\"D:\\Private\\LearningC++\\CoopGame\\CoopGame\\.vscode\\compileCommands_Default\\CoopGame.210.rsp\"",
+		"directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Private\\\\LearningC++\\\\CoopGame\\\\CoopGame\\\\Source\\\\CoopGame\\\\CoopGame.h",
+		"command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe @\"D:\\Private\\LearningC++\\CoopGame\\CoopGame\\.vscode\\compileCommands_Default\\CoopGame.210.rsp\"",
+		"directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Private\\\\LearningC++\\\\CoopGame\\\\CoopGame\\\\Source\\\\CoopGame\\\\CoopGameGameModeBase.cpp",
+		"command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe @\"D:\\Private\\LearningC++\\CoopGame\\CoopGame\\.vscode\\compileCommands_Default\\CoopGame.210.rsp\"",
+		"directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Private\\\\LearningC++\\\\CoopGame\\\\CoopGame\\\\Source\\\\CoopGame\\\\CoopGameGameModeBase.h",
+		"command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe @\"D:\\Private\\LearningC++\\CoopGame\\CoopGame\\.vscode\\compileCommands_Default\\CoopGame.210.rsp\"",
+		"directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+	}
+]

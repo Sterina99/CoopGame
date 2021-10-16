@@ -1,0 +1,9 @@
+D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\Definitions.CoopGame.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGCharacter.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGCharacter.generated.h

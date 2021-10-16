@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "CoopGame",
+			"Path": "D:\\Private\\LearningC++\\CoopGame\\CoopGame\\Source\\CoopGame.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "CoopGameEditor",
+			"Path": "D:\\Private\\LearningC++\\CoopGame\\CoopGame\\Source\\CoopGameEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
