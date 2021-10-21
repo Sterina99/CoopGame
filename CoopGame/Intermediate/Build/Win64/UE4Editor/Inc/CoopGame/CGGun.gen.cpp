@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCameraShakeBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ACGGun::execFire)
@@ -80,6 +81,14 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_DamageType;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BaseDamage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BaseDamage;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireRate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FireRate;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MuzzleSocketName_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FNamePropertyParams NewProp_MuzzleSocketName;
@@ -88,13 +97,21 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 #endif
 		static const UE4CodeGen_Private::FNamePropertyParams NewProp_TargetTracerName;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireCamShake_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_FireCamShake;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MuzzleEffect_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MuzzleEffect;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ImpactEffect_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DefaulImpactEffect_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ImpactEffect;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DefaulImpactEffect;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleshImpactEffect_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FleshImpactEffect;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TracerEffect_MetaData[];
 #endif
@@ -132,6 +149,20 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_DamageType = { "DamageType", nullptr, (EPropertyFlags)0x0024080000010015, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, DamageType), Z_Construct_UClass_UDamageType_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_DamageType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_DamageType_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_BaseDamage_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_BaseDamage = { "BaseDamage", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, BaseDamage), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_BaseDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_BaseDamage_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate = { "FireRate", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, FireRate), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleSocketName_MetaData[] = {
 		{ "Category", "Weapon" },
 		{ "ModuleRelativePath", "Public/CGGun.h" },
@@ -146,6 +177,13 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 #endif
 	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_TargetTracerName = { "TargetTracerName", nullptr, (EPropertyFlags)0x0020080000030015, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, TargetTracerName), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_TargetTracerName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_TargetTracerName_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_FireCamShake_MetaData[] = {
+		{ "Category", "Camera" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_FireCamShake = { "FireCamShake", nullptr, (EPropertyFlags)0x0024080000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, FireCamShake), Z_Construct_UClass_UCameraShakeBase_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_FireCamShake_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_FireCamShake_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleEffect_MetaData[] = {
 		{ "Category", "FX" },
 		{ "ModuleRelativePath", "Public/CGGun.h" },
@@ -153,12 +191,19 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleEffect = { "MuzzleEffect", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, MuzzleEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleEffect_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_ImpactEffect_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_DefaulImpactEffect_MetaData[] = {
 		{ "Category", "FX" },
 		{ "ModuleRelativePath", "Public/CGGun.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_ImpactEffect = { "ImpactEffect", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, ImpactEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_ImpactEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_ImpactEffect_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_DefaulImpactEffect = { "DefaulImpactEffect", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, DefaulImpactEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_DefaulImpactEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_DefaulImpactEffect_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect_MetaData[] = {
+		{ "Category", "FX" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect = { "FleshImpactEffect", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, FleshImpactEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect_MetaData[] = {
 		{ "Category", "FX" },
@@ -169,10 +214,14 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACGGun_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_BaseMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_DamageType,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_BaseDamage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleSocketName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_TargetTracerName,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FireCamShake,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleEffect,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_ImpactEffect,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_DefaulImpactEffect,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACGGun_Statics::StaticCppClassTypeInfo = {
@@ -202,7 +251,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGGun, 2908898425);
+	IMPLEMENT_CLASS(ACGGun, 1323822408);
 	template<> COOPGAME_API UClass* StaticClass<ACGGun>()
 	{
 		return ACGGun::StaticClass();

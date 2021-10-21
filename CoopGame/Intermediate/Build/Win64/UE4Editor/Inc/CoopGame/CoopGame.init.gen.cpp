@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeCoopGame_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xF39E510C,
+				0x54D877BB,
 				0x9014A63F,
 				METADATA_PARAMS(nullptr, 0)
 			};

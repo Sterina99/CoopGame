@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COOPGAME_CGCharacter_generated_h
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_SPARSE_DATA
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_RPC_WRAPPERS
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_INCLASS_NO_PURE_DECLS \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_SPARSE_DATA
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_RPC_WRAPPERS
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACGCharacter(); \
 	friend struct Z_Construct_UClass_ACGCharacter_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(ACGCharacter)
 
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_INCLASS \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesACGCharacter(); \
 	friend struct Z_Construct_UClass_ACGCharacter_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(ACGCharacter)
 
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_STANDARD_CONSTRUCTORS \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ACGCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACGCharacter) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_ENHANCED_CONSTRUCTORS \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACGCharacter(ACGCharacter&&); \
@@ -58,32 +58,36 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACGCharacter)
 
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraComp() { return STRUCT_OFFSET(ACGCharacter, CameraComp); } \
-	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ACGCharacter, SpringArmComp); }
+	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ACGCharacter, SpringArmComp); } \
+	FORCEINLINE static uint32 __PPO__ZoomInterpSpeed() { return STRUCT_OFFSET(ACGCharacter, ZoomInterpSpeed); } \
+	FORCEINLINE static uint32 __PPO__ZoomedFOV() { return STRUCT_OFFSET(ACGCharacter, ZoomedFOV); } \
+	FORCEINLINE static uint32 __PPO__WeaponSocketName() { return STRUCT_OFFSET(ACGCharacter, WeaponSocketName); } \
+	FORCEINLINE static uint32 __PPO__DefaultWeaponClass() { return STRUCT_OFFSET(ACGCharacter, DefaultWeaponClass); }
 
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_11_PROLOG
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_GENERATED_BODY_LEGACY \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_12_PROLOG
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_SPARSE_DATA \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_RPC_WRAPPERS \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_INCLASS \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_STANDARD_CONSTRUCTORS \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_PRIVATE_PROPERTY_OFFSET \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_SPARSE_DATA \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_RPC_WRAPPERS \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_INCLASS \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_GENERATED_BODY \
+#define CoopGame_Source_CoopGame_Public_CGCharacter_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_SPARSE_DATA \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_INCLASS_NO_PURE_DECLS \
-	CoopGame_Source_CoopGame_Public_CGCharacter_h_14_ENHANCED_CONSTRUCTORS \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_PRIVATE_PROPERTY_OFFSET \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_SPARSE_DATA \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_INCLASS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_CGCharacter_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -18,12 +18,16 @@ class COOPGAME_API ACGGun : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ACGGun();
+	
+	
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	UFUNCTION(BlueprintCallable, Category="Weapon")
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	virtual void Fire();
+
+	void PlayFireEffects(FVector TracerEndPoint) const;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 		USkeletalMeshComponent* BaseMesh;
@@ -31,20 +35,42 @@ protected:
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category= "Weapon")
 		TSubclassOf<UDamageType> DamageType;
 
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category= "Weapon")
+		float BaseDamage;
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category= "Weapon")
+		float FireRate;
+
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 		FName MuzzleSocketName;
+
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 		FName TargetTracerName;
+
+
+	UPROPERTY(EditDefaultsOnly, Category = "Camera")
+		TSubclassOf<UCameraShakeBase> FireCamShake;
+
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
 		UParticleSystem* MuzzleEffect;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
-		UParticleSystem* ImpactEffect;
+		UParticleSystem* DefaulImpactEffect;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
+		UParticleSystem* FleshImpactEffect;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
 		UParticleSystem* TracerEffect;
+
+	float TimeBetweenShots;
+	float LastFireTime;
+
+	FTimerHandle TimerHandle_WeaponFire;
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+//	virtual void Tick(float DeltaTime) override;
+	void StartFire();
 
+	void StopFire();
 };

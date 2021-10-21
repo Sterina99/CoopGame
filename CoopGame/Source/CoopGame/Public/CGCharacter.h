@@ -8,6 +8,7 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+class ACGGun;
 UCLASS()
 class COOPGAME_API ACGCharacter : public ACharacter
 {
@@ -21,20 +22,39 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	void MoveForward(float Value);
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UCameraComponent* CameraComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USpringArmComponent* SpringArmComp;
+	UPROPERTY(EditDefaultsOnly, Category = "Camera")
+		float ZoomInterpSpeed;
+	UPROPERTY(EditDefaultsOnly,Category = "Camera")
+	float ZoomedFOV;
 
+	UPROPERTY(VisibleDefaultsonly, Category = "Weapon")
+		FName WeaponSocketName;
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+		TSubclassOf<ACGGun> DefaultWeaponClass;
+
+	void MoveForward(float Value);
 	void MoveRight(float Value);
 
 	void BeginCrouch();
 	void EndCrouch();
 
+	void StartFire();
+	void StopFire();
+
+	void BeginZoom();
+	void EndZoom();
+
+	ACGGun* CurrentWeapon;
+	
+	
+	float DefaultFOV;
+	bool bIsZooming;
 
 
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	UCameraComponent* CameraComp;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	USpringArmComponent* SpringArmComp;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

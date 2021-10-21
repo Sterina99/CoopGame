@@ -69,10 +69,14 @@ public: \
 #define CoopGame_Source_CoopGame_Public_CGGun_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__BaseMesh() { return STRUCT_OFFSET(ACGGun, BaseMesh); } \
 	FORCEINLINE static uint32 __PPO__DamageType() { return STRUCT_OFFSET(ACGGun, DamageType); } \
+	FORCEINLINE static uint32 __PPO__BaseDamage() { return STRUCT_OFFSET(ACGGun, BaseDamage); } \
+	FORCEINLINE static uint32 __PPO__FireRate() { return STRUCT_OFFSET(ACGGun, FireRate); } \
 	FORCEINLINE static uint32 __PPO__MuzzleSocketName() { return STRUCT_OFFSET(ACGGun, MuzzleSocketName); } \
 	FORCEINLINE static uint32 __PPO__TargetTracerName() { return STRUCT_OFFSET(ACGGun, TargetTracerName); } \
+	FORCEINLINE static uint32 __PPO__FireCamShake() { return STRUCT_OFFSET(ACGGun, FireCamShake); } \
 	FORCEINLINE static uint32 __PPO__MuzzleEffect() { return STRUCT_OFFSET(ACGGun, MuzzleEffect); } \
-	FORCEINLINE static uint32 __PPO__ImpactEffect() { return STRUCT_OFFSET(ACGGun, ImpactEffect); } \
+	FORCEINLINE static uint32 __PPO__DefaulImpactEffect() { return STRUCT_OFFSET(ACGGun, DefaulImpactEffect); } \
+	FORCEINLINE static uint32 __PPO__FleshImpactEffect() { return STRUCT_OFFSET(ACGGun, FleshImpactEffect); } \
 	FORCEINLINE static uint32 __PPO__TracerEffect() { return STRUCT_OFFSET(ACGGun, TracerEffect); }
 
 
