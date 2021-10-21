@@ -35,9 +35,13 @@
 /FUNCTIONPADMIN
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\CoopGameEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGCharacter.cpp.obj"
+"D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGrenadeLauncher.cpp.obj"
+"D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGun.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CoopGame.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CoopGameGameModeBase.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGCharacter.gen.cpp.obj"
+"D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGrenadeLauncher.gen.cpp.obj"
+"D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGun.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CoopGame.init.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CoopGameGameModeBase.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\Default.rc2.res"

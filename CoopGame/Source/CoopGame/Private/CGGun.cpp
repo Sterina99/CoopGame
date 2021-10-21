@@ -5,6 +5,9 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles\ParticleSystem.h"
+#include "Particles/ParticleSystemComponent.h"
+
 
 // Sets default values
 ACGGun::ACGGun()
@@ -13,12 +16,16 @@ ACGGun::ACGGun()
 	PrimaryActorTick.bCanEverTick = true;
 	BaseMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BaseMesh"));
 	RootComponent = BaseMesh;
+
+
 }
 
 // Called when the game starts or when spawned
 void ACGGun::BeginPlay()
 {
 	Super::BeginPlay();
+	MuzzleSocketName = "MuzzleSocket";
+	TargetTracerName = "Target";
 	
 }
 
@@ -40,6 +47,8 @@ void ACGGun::Fire()
 		//more cost, but more efficient :D
 		QueryParams.bTraceComplex = true;
 
+		//Particle "Target" paramenter
+		FVector TracerEndPoint = TraceEnd;
 		FHitResult Hit;
 
 		if(GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams)){
@@ -47,11 +56,20 @@ void ACGGun::Fire()
 			//proccess damage
 			AActor* HitActor = Hit.GetActor();
 			UGameplayStatics::ApplyPointDamage(HitActor, 20.f, ShotDirection, Hit, MyOwner->GetInstigatorController(), this, DamageType);
-			
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.ImpactPoint, Hit.ImpactNormal.Rotation());
+			TracerEndPoint = Hit.ImpactPoint;
 		}
 
 		DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 1.f, 0, 1.f);
-
+		if (MuzzleEffect) {
+			UGameplayStatics::SpawnEmitterAttached(MuzzleEffect, BaseMesh, MuzzleSocketName);
+		}
+		if (TracerEffect) {
+			UParticleSystemComponent* TracerComp= UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), TracerEffect, BaseMesh->GetSocketLocation(MuzzleSocketName));
+			if (TracerComp) {
+				TracerComp->SetVectorParameter(TargetTracerName, TracerEndPoint);
+			}
+		}
 	}
 }
 

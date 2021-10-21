@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\CoopGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{0BDE77D9-3166-415E-8C20-B929365EADF2}</UniqueIdentifier>
+      <UniqueIdentifier>{B58CA106-BBD6-46ED-8767-FC218EE12415}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CoopGame.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.ignore" />
     <None Include="..\..\CoopGame.code-workspace" />
     <Filter Include="Config">
-      <UniqueIdentifier>{B154662B-A607-486F-9024-CA3A86927BEE}</UniqueIdentifier>
+      <UniqueIdentifier>{59DA7826-F1B8-46A1-8A2E-8788FED24727}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\CoopGame">
-      <UniqueIdentifier>{CEA75141-1561-40D5-939E-460A5A1DE4A9}</UniqueIdentifier>
+      <UniqueIdentifier>{259BD3D2-016F-4EC5-B8B7-A8D102F207DB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CoopGame\CoopGame.Build.cs">
       <Filter>Source\CoopGame</Filter>
@@ -50,18 +50,30 @@
       <Filter>Source\CoopGame</Filter>
     </ClInclude>
     <Filter Include="Source\CoopGame\Private">
-      <UniqueIdentifier>{7D896E67-B08A-469D-9279-650A5820DE4F}</UniqueIdentifier>
+      <UniqueIdentifier>{D6CE8C37-A873-41F5-B1D4-DEE22767EC21}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\CoopGame\Private\CGCharacter.cpp">
+      <Filter>Source\CoopGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CoopGame\Private\CGGrenadeLauncher.cpp">
+      <Filter>Source\CoopGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CoopGame\Private\CGGrenadeProjectile.cpp">
       <Filter>Source\CoopGame\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\CoopGame\Private\CGGun.cpp">
       <Filter>Source\CoopGame\Private</Filter>
     </ClCompile>
     <Filter Include="Source\CoopGame\Public">
-      <UniqueIdentifier>{FC3749FE-8128-4E13-B5F2-544931C6AE53}</UniqueIdentifier>
+      <UniqueIdentifier>{17DB2F18-5350-406A-A867-B5688D062405}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\CoopGame\Public\CGCharacter.h">
+      <Filter>Source\CoopGame\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CoopGame\Public\CGGrenadeLauncher.h">
+      <Filter>Source\CoopGame\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CoopGame\Public\CGGrenadeProjectile.h">
       <Filter>Source\CoopGame\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\CoopGame\Public\CGGun.h">

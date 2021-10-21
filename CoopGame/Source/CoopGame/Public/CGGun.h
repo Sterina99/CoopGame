@@ -8,6 +8,8 @@
 
 class USkeletalMeshComponent;
 class UDamageType;
+class UParticleSystem;
+
 UCLASS()
 class COOPGAME_API ACGGun : public AActor
 {
@@ -21,13 +23,26 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UFUNCTION(BlueprintCallable, Category="Weapon")
-	void Fire();
+	virtual void Fire();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 		USkeletalMeshComponent* BaseMesh;
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category= "Weapon")
-	TSubclassOf<UDamageType> DamageType;
+		TSubclassOf<UDamageType> DamageType;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+		FName MuzzleSocketName;
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+		FName TargetTracerName;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
+		UParticleSystem* MuzzleEffect;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
+		UParticleSystem* ImpactEffect;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
+		UParticleSystem* TracerEffect;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

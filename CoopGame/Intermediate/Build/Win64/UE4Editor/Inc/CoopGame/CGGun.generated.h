@@ -13,18 +13,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COOPGAME_CGGun_generated_h
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_SPARSE_DATA
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_RPC_WRAPPERS \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_SPARSE_DATA
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execFire);
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execFire);
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_INCLASS_NO_PURE_DECLS \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACGGun(); \
 	friend struct Z_Construct_UClass_ACGGun_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(ACGGun)
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_INCLASS \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_INCLASS \
 private: \
 	static void StaticRegisterNativesACGGun(); \
 	friend struct Z_Construct_UClass_ACGGun_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ACGGun)
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_STANDARD_CONSTRUCTORS \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ACGGun(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACGGun) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_ENHANCED_CONSTRUCTORS \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACGGun(ACGGun&&); \
@@ -66,32 +66,37 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACGGun)
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_PRIVATE_PROPERTY_OFFSET \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__BaseMesh() { return STRUCT_OFFSET(ACGGun, BaseMesh); } \
-	FORCEINLINE static uint32 __PPO__DamageType() { return STRUCT_OFFSET(ACGGun, DamageType); }
+	FORCEINLINE static uint32 __PPO__DamageType() { return STRUCT_OFFSET(ACGGun, DamageType); } \
+	FORCEINLINE static uint32 __PPO__MuzzleSocketName() { return STRUCT_OFFSET(ACGGun, MuzzleSocketName); } \
+	FORCEINLINE static uint32 __PPO__TargetTracerName() { return STRUCT_OFFSET(ACGGun, TargetTracerName); } \
+	FORCEINLINE static uint32 __PPO__MuzzleEffect() { return STRUCT_OFFSET(ACGGun, MuzzleEffect); } \
+	FORCEINLINE static uint32 __PPO__ImpactEffect() { return STRUCT_OFFSET(ACGGun, ImpactEffect); } \
+	FORCEINLINE static uint32 __PPO__TracerEffect() { return STRUCT_OFFSET(ACGGun, TracerEffect); }
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_11_PROLOG
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_GENERATED_BODY_LEGACY \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_13_PROLOG
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_PRIVATE_PROPERTY_OFFSET \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_SPARSE_DATA \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_RPC_WRAPPERS \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_INCLASS \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_STANDARD_CONSTRUCTORS \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_PRIVATE_PROPERTY_OFFSET \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_SPARSE_DATA \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_RPC_WRAPPERS \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_INCLASS \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define CoopGame_Source_CoopGame_Public_CGGun_h_14_GENERATED_BODY \
+#define CoopGame_Source_CoopGame_Public_CGGun_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_PRIVATE_PROPERTY_OFFSET \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_SPARSE_DATA \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_INCLASS_NO_PURE_DECLS \
-	CoopGame_Source_CoopGame_Public_CGGun_h_14_ENHANCED_CONSTRUCTORS \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_PRIVATE_PROPERTY_OFFSET \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_SPARSE_DATA \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_INCLASS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_CGGun_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
