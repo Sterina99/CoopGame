@@ -17,13 +17,267 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 	COOPGAME_API UClass* Z_Construct_UClass_ACGCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_CoopGame();
+	COOPGAME_API UClass* Z_Construct_UClass_ACGGun_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	COOPGAME_API UClass* Z_Construct_UClass_ACGGun_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ACGCharacter::execIsZooming)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsZooming();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACGCharacter::execIsReloading)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsReloading();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACGCharacter::execGetMagazines)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetMagazines();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACGCharacter::execGetAmmos)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetAmmos();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACGCharacter::execGetCurrentWeaponName)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FName*)Z_Param__Result=P_THIS->GetCurrentWeaponName();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACGCharacter::execGetCurrentWeapon)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(ACGGun**)Z_Param__Result=P_THIS->GetCurrentWeapon();
+		P_NATIVE_END;
+	}
 	void ACGCharacter::StaticRegisterNativesACGCharacter()
 	{
+		UClass* Class = ACGCharacter::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "GetAmmos", &ACGCharacter::execGetAmmos },
+			{ "GetCurrentWeapon", &ACGCharacter::execGetCurrentWeapon },
+			{ "GetCurrentWeaponName", &ACGCharacter::execGetCurrentWeaponName },
+			{ "GetMagazines", &ACGCharacter::execGetMagazines },
+			{ "IsReloading", &ACGCharacter::execIsReloading },
+			{ "IsZooming", &ACGCharacter::execIsZooming },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics
+	{
+		struct CGCharacter_eventGetAmmos_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CGCharacter_eventGetAmmos_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "GetAmmos", nullptr, nullptr, sizeof(CGCharacter_eventGetAmmos_Parms), Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_GetAmmos()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_GetAmmos_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics
+	{
+		struct CGCharacter_eventGetCurrentWeapon_Parms
+		{
+			ACGGun* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CGCharacter_eventGetCurrentWeapon_Parms, ReturnValue), Z_Construct_UClass_ACGGun_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "GetCurrentWeapon", nullptr, nullptr, sizeof(CGCharacter_eventGetCurrentWeapon_Parms), Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics
+	{
+		struct CGCharacter_eventGetCurrentWeaponName_Parms
+		{
+			FName ReturnValue;
+		};
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CGCharacter_eventGetCurrentWeaponName_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "GetCurrentWeaponName", nullptr, nullptr, sizeof(CGCharacter_eventGetCurrentWeaponName_Parms), Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics
+	{
+		struct CGCharacter_eventGetMagazines_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CGCharacter_eventGetMagazines_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "GetMagazines", nullptr, nullptr, sizeof(CGCharacter_eventGetMagazines_Parms), Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_GetMagazines()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_GetMagazines_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGCharacter_IsReloading_Statics
+	{
+		struct CGCharacter_eventIsReloading_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((CGCharacter_eventIsReloading_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(CGCharacter_eventIsReloading_Parms), &Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "IsReloading", nullptr, nullptr, sizeof(CGCharacter_eventIsReloading_Parms), Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_IsReloading()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_IsReloading_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGCharacter_IsZooming_Statics
+	{
+		struct CGCharacter_eventIsZooming_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((CGCharacter_eventIsZooming_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(CGCharacter_eventIsZooming_Parms), &Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "IsZooming", nullptr, nullptr, sizeof(CGCharacter_eventIsZooming_Parms), Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_IsZooming()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_IsZooming_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ACGCharacter_NoRegister()
 	{
@@ -32,6 +286,7 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 	struct Z_Construct_UClass_ACGCharacter_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -66,6 +321,14 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 	UObject* (*const Z_Construct_UClass_ACGCharacter_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_ACharacter,
 		(UObject* (*)())Z_Construct_UPackage__Script_CoopGame,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ACGCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ACGCharacter_GetAmmos, "GetAmmos" }, // 1740807490
+		{ &Z_Construct_UFunction_ACGCharacter_GetCurrentWeapon, "GetCurrentWeapon" }, // 1719462955
+		{ &Z_Construct_UFunction_ACGCharacter_GetCurrentWeaponName, "GetCurrentWeaponName" }, // 4054178653
+		{ &Z_Construct_UFunction_ACGCharacter_GetMagazines, "GetMagazines" }, // 3735007434
+		{ &Z_Construct_UFunction_ACGCharacter_IsReloading, "IsReloading" }, // 4259409634
+		{ &Z_Construct_UFunction_ACGCharacter_IsZooming, "IsZooming" }, // 2167160993
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGCharacter_Statics::Class_MetaDataParams[] = {
@@ -134,11 +397,11 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ACGCharacter_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ACGCharacter_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -153,7 +416,7 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGCharacter, 3216036593);
+	IMPLEMENT_CLASS(ACGCharacter, 2880520995);
 	template<> COOPGAME_API UClass* StaticClass<ACGCharacter>()
 	{
 		return ACGCharacter::StaticClass();

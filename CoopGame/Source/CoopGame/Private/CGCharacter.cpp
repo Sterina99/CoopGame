@@ -6,6 +6,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/PawnMovementComponent.h"
 #include "CGGun.h"
+#include "Components/WidgetComponent.h"
+
 
 // Sets default values
 ACGCharacter::ACGCharacter()
@@ -18,7 +20,6 @@ ACGCharacter::ACGCharacter()
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera Comp"));
 	CameraComp->bUsePawnControlRotation = true;
 	CameraComp->SetupAttachment(SpringArmComp);
-
 
 	
 }
@@ -37,6 +38,8 @@ void ACGCharacter::BeginPlay()
 		CurrentWeapon->SetOwner(this);
 		CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale,WeaponSocketName);
 	}
+	bIsReloading = false;
+	Magazines = 0;
 }
 
 void ACGCharacter::BeginZoom()
@@ -48,6 +51,26 @@ void ACGCharacter::EndZoom()
 {
 	bIsZooming = false;
 
+}
+void ACGCharacter::AddMagazine() {
+
+	Magazines++;
+}
+void ACGCharacter::ReloadWeapon()
+{
+	if (Magazines <= 0) return;
+
+	UE_LOG(LogTemp, Warning, TEXT("Reload"));
+	bIsReloading = true;
+	GetWorldTimerManager().SetTimer(TimerHandle_Reload,this,&ACGCharacter::StopReloadWeapon,2.17f,false);
+}
+
+void ACGCharacter::StopReloadWeapon()
+{
+	bIsReloading = false;
+	Magazines--;
+	UE_LOG(LogTemp, Warning, TEXT("DoneReload"));
+	CurrentWeapon->ReloadWeapon();
 }
 
 // Called every frame
@@ -83,16 +106,50 @@ void ACGCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction("Zoom", IE_Released, this, &ACGCharacter::EndZoom);
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ACGCharacter::StartFire);
 	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ACGCharacter::StopFire);
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ACGCharacter::ReloadWeapon);
 
 }
 
+ACGGun* ACGCharacter::GetCurrentWeapon()
+{
+	return CurrentWeapon;
+}
+FName ACGCharacter::GetCurrentWeaponName()
+{
+	return CurrentWeapon->GetFName();
+}
+//BluePrintFunctions
+bool ACGCharacter::IsReloading()
+{
+	return bIsReloading;
+}
+bool ACGCharacter::IsZooming()
+{
+	return bIsZooming;
+}
+int ACGCharacter::GetAmmos()
+{
+	return CurrentWeapon->Ammos;
+}
+
+int ACGCharacter::GetMagazines()
+{
+	return Magazines;
+}
+
+
+
+
+
 void ACGCharacter::MoveForward(float Value)
 {
+	//if(!bIsReloading)
 	AddMovementInput(GetActorForwardVector()* Value);
 }
 
 void ACGCharacter::MoveRight(float Value)
 {
+	//if (!bIsReloading)
 	AddMovementInput(GetActorRightVector() * Value);
 }
 

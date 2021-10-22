@@ -9,6 +9,8 @@
 class UCameraComponent;
 class USpringArmComponent;
 class ACGGun;
+class UWidgetComponent;
+
 UCLASS()
 class COOPGAME_API ACGCharacter : public ACharacter
 {
@@ -34,7 +36,8 @@ protected:
 	UPROPERTY(VisibleDefaultsonly, Category = "Weapon")
 		FName WeaponSocketName;
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-		TSubclassOf<ACGGun> DefaultWeaponClass;
+		TSubclassOf<ACGGun> DefaultWeaponClass;	
+
 
 	void MoveForward(float Value);
 	void MoveRight(float Value);
@@ -48,12 +51,17 @@ protected:
 	void BeginZoom();
 	void EndZoom();
 
+	void ReloadWeapon();
+	void StopReloadWeapon();
+
+
 	ACGGun* CurrentWeapon;
-	
+	FTimerHandle TimerHandle_Reload;
 	
 	float DefaultFOV;
 	bool bIsZooming;
-
+	bool bIsReloading;
+	int Magazines;
 
 public:	
 	// Called every frame
@@ -62,4 +70,20 @@ public:
 	virtual FVector GetPawnViewLocation() const override;
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void AddMagazine();
+	UFUNCTION(BlueprintCallable)
+		ACGGun* GetCurrentWeapon();
+	UFUNCTION(BlueprintCallable)
+		FName GetCurrentWeaponName();
+	UFUNCTION(BlueprintCallable)
+		int GetAmmos();
+	UFUNCTION(BlueprintCallable)
+		int GetMagazines();
+	UFUNCTION(BlueprintCallable)
+		bool IsReloading();
+	UFUNCTION(BlueprintCallable)
+		bool IsZooming();
+
+	
 };

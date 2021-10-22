@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define CoopGame_Source_CoopGame_Public_CGGun_h_16_SPARSE_DATA
 #define CoopGame_Source_CoopGame_Public_CGGun_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetAmmos); \
 	DECLARE_FUNCTION(execFire);
 
 
 #define CoopGame_Source_CoopGame_Public_CGGun_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetAmmos); \
 	DECLARE_FUNCTION(execFire);
 
 
@@ -71,13 +73,15 @@ public: \
 	FORCEINLINE static uint32 __PPO__DamageType() { return STRUCT_OFFSET(ACGGun, DamageType); } \
 	FORCEINLINE static uint32 __PPO__BaseDamage() { return STRUCT_OFFSET(ACGGun, BaseDamage); } \
 	FORCEINLINE static uint32 __PPO__FireRate() { return STRUCT_OFFSET(ACGGun, FireRate); } \
+	FORCEINLINE static uint32 __PPO__bCanPenetrate() { return STRUCT_OFFSET(ACGGun, bCanPenetrate); } \
 	FORCEINLINE static uint32 __PPO__MuzzleSocketName() { return STRUCT_OFFSET(ACGGun, MuzzleSocketName); } \
 	FORCEINLINE static uint32 __PPO__TargetTracerName() { return STRUCT_OFFSET(ACGGun, TargetTracerName); } \
 	FORCEINLINE static uint32 __PPO__FireCamShake() { return STRUCT_OFFSET(ACGGun, FireCamShake); } \
 	FORCEINLINE static uint32 __PPO__MuzzleEffect() { return STRUCT_OFFSET(ACGGun, MuzzleEffect); } \
 	FORCEINLINE static uint32 __PPO__DefaulImpactEffect() { return STRUCT_OFFSET(ACGGun, DefaulImpactEffect); } \
 	FORCEINLINE static uint32 __PPO__FleshImpactEffect() { return STRUCT_OFFSET(ACGGun, FleshImpactEffect); } \
-	FORCEINLINE static uint32 __PPO__TracerEffect() { return STRUCT_OFFSET(ACGGun, TracerEffect); }
+	FORCEINLINE static uint32 __PPO__TracerEffect() { return STRUCT_OFFSET(ACGGun, TracerEffect); } \
+	FORCEINLINE static uint32 __PPO__MaxAmmos() { return STRUCT_OFFSET(ACGGun, MaxAmmos); }
 
 
 #define CoopGame_Source_CoopGame_Public_CGGun_h_13_PROLOG

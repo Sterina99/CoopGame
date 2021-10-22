@@ -23,6 +23,13 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 	ENGINE_API UClass* Z_Construct_UClass_UCameraShakeBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ACGGun::execGetAmmos)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetAmmos();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ACGGun::execFire)
 	{
 		P_FINISH;
@@ -35,6 +42,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 		UClass* Class = ACGGun::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Fire", &ACGGun::execFire },
+			{ "GetAmmos", &ACGGun::execGetAmmos },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -58,6 +66,38 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGGun_Fire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGGun_GetAmmos_Statics
+	{
+		struct CGGun_eventGetAmmos_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ACGGun_GetAmmos_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CGGun_eventGetAmmos_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACGGun_GetAmmos_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACGGun_GetAmmos_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGGun_GetAmmos_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGGun_GetAmmos_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGGun, nullptr, "GetAmmos", nullptr, nullptr, sizeof(CGGun_eventGetAmmos_Parms), Z_Construct_UFunction_ACGGun_GetAmmos_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGGun_GetAmmos_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGGun_GetAmmos_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGGun_GetAmmos_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGGun_GetAmmos()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGGun_GetAmmos_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -89,6 +129,11 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FireRate;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bCanPenetrate_MetaData[];
+#endif
+		static void NewProp_bCanPenetrate_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCanPenetrate;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MuzzleSocketName_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FNamePropertyParams NewProp_MuzzleSocketName;
@@ -116,6 +161,10 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TracerEffect_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TracerEffect;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxAmmos_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_MaxAmmos;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -126,6 +175,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACGGun_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACGGun_Fire, "Fire" }, // 762926451
+		{ &Z_Construct_UFunction_ACGGun_GetAmmos, "GetAmmos" }, // 3884151479
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::Class_MetaDataParams[] = {
@@ -162,6 +212,17 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate = { "FireRate", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, FireRate), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	void Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate_SetBit(void* Obj)
+	{
+		((ACGGun*)Obj)->bCanPenetrate = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate = { "bCanPenetrate", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ACGGun), &Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate_SetBit, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleSocketName_MetaData[] = {
 		{ "Category", "Weapon" },
@@ -211,11 +272,19 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect = { "TracerEffect", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, TracerEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos = { "MaxAmmos", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, MaxAmmos), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACGGun_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_BaseMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_DamageType,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_BaseDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FireRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_bCanPenetrate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_MuzzleSocketName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_TargetTracerName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FireCamShake,
@@ -223,6 +292,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_DefaulImpactEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACGGun_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACGGun>::IsAbstract,
@@ -251,7 +321,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGun() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGGun, 1323822408);
+	IMPLEMENT_CLASS(ACGGun, 2680066587);
 	template<> COOPGAME_API UClass* StaticClass<ACGGun>()
 	{
 		return ACGGun::StaticClass();

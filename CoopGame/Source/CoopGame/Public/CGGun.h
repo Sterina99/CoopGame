@@ -39,6 +39,8 @@ protected:
 		float BaseDamage;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category= "Weapon")
 		float FireRate;
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+	bool bCanPenetrate;
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 		FName MuzzleSocketName;
@@ -63,14 +65,23 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FX")
 		UParticleSystem* TracerEffect;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+		int MaxAmmos;
+
 	float TimeBetweenShots;
 	float LastFireTime;
 
 	FTimerHandle TimerHandle_WeaponFire;
+
+
 public:	
 	// Called every frame
 //	virtual void Tick(float DeltaTime) override;
 	void StartFire();
 
 	void StopFire();
+	UFUNCTION(BlueprintPure)
+		int GetAmmos() const;
+	int Ammos;
+	void ReloadWeapon();
 };
