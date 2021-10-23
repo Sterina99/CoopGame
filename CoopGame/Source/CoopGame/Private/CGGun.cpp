@@ -50,6 +50,7 @@ void ACGGun::Fire()
 		QueryParams.AddIgnoredActor(MyOwner);
 		QueryParams.AddIgnoredActor(this);
 		QueryParams.bReturnPhysicalMaterial = true;
+
 		//more cost, but more efficient :D
 		QueryParams.bTraceComplex = true;
 
@@ -91,10 +92,10 @@ void ACGGun::Fire()
 			PlayFireEffects(TracerEndPoint);
 		}
 		else {
-			TArray<FHitResult> Hits;
-			if (GetWorld()->LineTraceMultiByChannel(Hits, EyeLocation, TraceEnd, COLLISION_FMJWEAPON, QueryParams)) {
-				UE_LOG(LogTemp, Warning, TEXT("%i"), Hits.Num());
-				for (FHitResult Hit : Hits) {
+			TArray<FHitResult> OutHits;
+			if (GetWorld()->LineTraceMultiByChannel(OutHits, EyeLocation, TraceEnd, COLLISION_FMJWEAPON, QueryParams)) {
+				UE_LOG(LogTemp, Warning, TEXT("%i"), OutHits.Num());
+				for (FHitResult Hit : OutHits) {
 
 				//proccess damage
 				AActor* HitActor = Hit.GetActor();

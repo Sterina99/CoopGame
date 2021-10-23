@@ -166,7 +166,7 @@ void ACGCharacter::EndCrouch()
 
 void ACGCharacter::StartFire()
 {
-	if (CurrentWeapon) {
+	if (CurrentWeapon && !bIsReloading) {
 		CurrentWeapon->StartFire();
 	}
 }

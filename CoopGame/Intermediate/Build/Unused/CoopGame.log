@@ -2,11 +2,12 @@
   Building CoopGameEditor...
   Using Visual Studio 2019 14.29.30136 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 4 actions with 20 processes...
-    [1/4] CGCharacter.cpp
-    [2/4] UE4Editor-CoopGame-0037.lib
-       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0037.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0037.exp
-    [3/4] UE4Editor-CoopGame-0037.dll
-       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0037.suppressed.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0037.suppressed.exp
+    [1/4] CGGun.cpp
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Private\CGGun.cpp(171): warning C4996: 'APlayerController::ClientPlayCameraShake': Please use ClientStartCameraShake Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    [2/4] UE4Editor-CoopGame-0045.lib
+       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0045.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0045.exp
+    [3/4] UE4Editor-CoopGame-0045.dll
+       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0045.suppressed.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0045.suppressed.exp
     [4/4] CoopGameEditor.target
-  Total time in Parallel executor: 6.04 seconds
-  Total execution time: 6.63 seconds
+  Total time in Parallel executor: 3.09 seconds
+  Total execution time: 3.56 seconds
