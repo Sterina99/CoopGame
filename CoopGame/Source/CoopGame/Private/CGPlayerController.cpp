@@ -6,7 +6,7 @@
 
 void ACGPlayerController::BeginPlay() {
 	Super::BeginPlay();
-
+	if (!IsLocalController()) return;
 	HUD = CreateWidget(this, HUDClass);
 	if (HUD) {
 		HUD->AddToViewport();

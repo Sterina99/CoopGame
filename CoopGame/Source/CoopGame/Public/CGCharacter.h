@@ -10,7 +10,7 @@ class UCameraComponent;
 class USpringArmComponent;
 class ACGGun;
 class UWidgetComponent;
-
+class UCGHealthComponent;
 UCLASS()
 class COOPGAME_API ACGCharacter : public ACharacter
 {
@@ -28,6 +28,8 @@ protected:
 	UCameraComponent* CameraComp;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USpringArmComponent* SpringArmComp;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
+	UCGHealthComponent* HealthComp;
 	UPROPERTY(EditDefaultsOnly, Category = "Camera")
 		float ZoomInterpSpeed;
 	UPROPERTY(EditDefaultsOnly,Category = "Camera")
@@ -53,14 +55,19 @@ protected:
 
 	void ReloadWeapon();
 	void StopReloadWeapon();
+	
+	UFUNCTION()
+	void OnHealthChanged(UCGHealthComponent* OwningHealthComp, float Health, float HealthDelta, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 
-
+	UPROPERTY(Replicated)
 	ACGGun* CurrentWeapon;
 	FTimerHandle TimerHandle_Reload;
 	
 	float DefaultFOV;
 	bool bIsZooming;
 	bool bIsReloading;
+	UPROPERTY(BlueprintReadOnly, Category = "Player")
+	  bool bIsDead;
 	int Magazines;
 
 public:	
@@ -85,5 +92,5 @@ public:
 	UFUNCTION(BlueprintCallable)
 		bool IsZooming();
 
-	
+	virtual void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const;
 };

@@ -9,6 +9,18 @@
 class USkeletalMeshComponent;
 class UDamageType;
 class UParticleSystem;
+//info on weapon's line trace (NETWORK)
+USTRUCT()
+struct FHitScanTrace
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY()
+	TEnumAsByte<EPhysicalSurface> SurfaceType;
+	UPROPERTY()
+	FVector_NetQuantize TraceTo;
+};
 
 UCLASS()
 class COOPGAME_API ACGGun : public AActor
@@ -24,10 +36,14 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	virtual void Fire();
+	UFUNCTION(Server, Reliable, WithValidation)
+		void ServerFire();
 
 	void PlayFireEffects(FVector TracerEndPoint) const;
+	void PlayImpactEffects(EPhysicalSurface SurfaceType, FVector ImpactPoint) const;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 		USkeletalMeshComponent* BaseMesh;
@@ -73,7 +89,11 @@ protected:
 
 	FTimerHandle TimerHandle_WeaponFire;
 
-
+	UPROPERTY(ReplicatedUsing= OnRep_HitScanTrace)
+	FHitScanTrace HitScanTrace;
+	
+	UFUNCTION()
+		void OnRep_HitScanTrace();
 public:	
 	// Called every frame
 //	virtual void Tick(float DeltaTime) override;

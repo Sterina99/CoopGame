@@ -7,6 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\CoopGameEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGHealthComponent.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGAmmoPickUp.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGCharacter.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGrenadeLauncher.cpp.obj"
@@ -20,6 +21,7 @@
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGrenadeLauncher.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGrenadeProjectile.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGGun.gen.cpp.obj"
+"D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGHealthComponent.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CGPlayerController.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CoopGame.init.gen.cpp.obj"
 "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\CoopGameGameModeBase.gen.cpp.obj"

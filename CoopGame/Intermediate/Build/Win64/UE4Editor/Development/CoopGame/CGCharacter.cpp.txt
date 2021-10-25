@@ -21,6 +21,11 @@ D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavMov
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PawnMovementComponent.generated.h
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGGun.h
 D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGGun.generated.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/CapsuleComponent.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame/CoopGame.h
 D:\EpicGames\UE_4.27\Engine\Source\Runtime\UMG\Public\Components/WidgetComponent.h
 D:\EpicGames\UE_4.27\Engine\Source\Runtime\UMG\Public\Blueprint/UserWidget.h
 D:\EpicGames\UE_4.27\Engine\Source\Runtime\UMG\Public\Components/SlateWrapperTypes.h
@@ -122,3 +127,6 @@ D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DynamicPr
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintGeneratedClass.generated.h
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetComponent.generated.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\Components/CGHealthComponent.h
+D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGHealthComponent.generated.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Public\Net/UnrealNetwork.h

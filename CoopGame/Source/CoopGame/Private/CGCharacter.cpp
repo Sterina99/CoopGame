@@ -6,9 +6,11 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/PawnMovementComponent.h"
 #include "CGGun.h"
+#include "Components/CapsuleComponent.h"
+#include "CoopGame/CoopGame.h"
 #include "Components/WidgetComponent.h"
-
-
+#include "Components/CGHealthComponent.h"
+#include "Net/UnrealNetwork.h"
 // Sets default values
 ACGCharacter::ACGCharacter()
 {
@@ -16,11 +18,13 @@ ACGCharacter::ACGCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm Comp"));
 	SpringArmComp->SetupAttachment(RootComponent);
-
+	GetCapsuleComponent()->SetCollisionResponseToChannel(COLLISION_WEAPON, ECR_Ignore);
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera Comp"));
 	CameraComp->bUsePawnControlRotation = true;
 	CameraComp->SetupAttachment(SpringArmComp);
-
+	HealthComp = CreateDefaultSubobject<UCGHealthComponent>(TEXT("HealthComp"));
+	WeaponSocketName = "WeaponSocket";
+	HealthComp->OnHealthChanged.AddDynamic(this, &ACGCharacter::OnHealthChanged);
 	
 }
 
@@ -28,18 +32,25 @@ ACGCharacter::ACGCharacter()
 void ACGCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	WeaponSocketName = "WeaponSocket";
-	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
 	DefaultFOV = CameraComp->FieldOfView;
+	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
+
+	
+
+	if (GetLocalRole() == ROLE_Authority) {
+
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	CurrentWeapon = GetWorld()->SpawnActor<ACGGun>(DefaultWeaponClass, FVector::ZeroVector,FRotator::ZeroRotator, SpawnParams);
-	if (CurrentWeapon) {
-		CurrentWeapon->SetOwner(this);
-		CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale,WeaponSocketName);
+		if (CurrentWeapon) {
+			CurrentWeapon->SetOwner(this);
+			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale,WeaponSocketName);
+		}
 	}
 	bIsReloading = false;
+	bIsDead = false;
 	Magazines = 0;
+
 }
 
 void ACGCharacter::BeginZoom()
@@ -72,6 +83,22 @@ void ACGCharacter::StopReloadWeapon()
 	UE_LOG(LogTemp, Warning, TEXT("DoneReload"));
 	CurrentWeapon->ReloadWeapon();
 }
+
+void ACGCharacter::OnHealthChanged(UCGHealthComponent* OwningHealthComp, float Health, float HealthDelta, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
+{
+//	UE_LOG(LogTemp, Log, TEXT("DEAD"));
+	if (Health <= 0 && !bIsDead) {
+		//Die 
+		bIsDead = true;
+	
+		GetMovementComponent()->StopMovementImmediately();
+
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+		DetachFromControllerPendingDestroy();
+	}
+}
+
 
 // Called every frame
 void ACGCharacter::Tick(float DeltaTime)
@@ -127,6 +154,11 @@ bool ACGCharacter::IsZooming()
 {
 	return bIsZooming;
 }
+void ACGCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(ACGCharacter, CurrentWeapon);
+}
 int ACGCharacter::GetAmmos()
 {
 	return CurrentWeapon->Ammos;
@@ -136,9 +168,6 @@ int ACGCharacter::GetMagazines()
 {
 	return Magazines;
 }
-
-
-
 
 
 void ACGCharacter::MoveForward(float Value)
@@ -176,6 +205,7 @@ void ACGCharacter::StopFire()
 		CurrentWeapon->StopFire();
 	}
 }
+
 
 
 

@@ -1,7 +1,8 @@
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGAmmoPickUp.h
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGGrenadeLauncher.h
-D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGGrenadeProjectile.h
-D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGCharacter.h
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGGun.h
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGPlayerController.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGGrenadeProjectile.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\Components\CGHealthComponent.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGCharacter.h
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\CoopGameGameModeBase.h

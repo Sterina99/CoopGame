@@ -9,6 +9,10 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class ACGGun;
+class UCGHealthComponent;
+class UDamageType;
+class AController;
+class AActor;
 #ifdef COOPGAME_CGCharacter_generated_h
 #error "CGCharacter.generated.h already included, missing '#pragma once' in CGCharacter.h"
 #endif
@@ -22,7 +26,8 @@ class ACGGun;
 	DECLARE_FUNCTION(execGetMagazines); \
 	DECLARE_FUNCTION(execGetAmmos); \
 	DECLARE_FUNCTION(execGetCurrentWeaponName); \
-	DECLARE_FUNCTION(execGetCurrentWeapon);
+	DECLARE_FUNCTION(execGetCurrentWeapon); \
+	DECLARE_FUNCTION(execOnHealthChanged);
 
 
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -32,7 +37,8 @@ class ACGGun;
 	DECLARE_FUNCTION(execGetMagazines); \
 	DECLARE_FUNCTION(execGetAmmos); \
 	DECLARE_FUNCTION(execGetCurrentWeaponName); \
-	DECLARE_FUNCTION(execGetCurrentWeapon);
+	DECLARE_FUNCTION(execGetCurrentWeapon); \
+	DECLARE_FUNCTION(execOnHealthChanged);
 
 
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_INCLASS_NO_PURE_DECLS \
@@ -41,7 +47,13 @@ private: \
 	friend struct Z_Construct_UClass_ACGCharacter_Statics; \
 public: \
 	DECLARE_CLASS(ACGCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/CoopGame"), NO_API) \
-	DECLARE_SERIALIZER(ACGCharacter)
+	DECLARE_SERIALIZER(ACGCharacter) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		CurrentWeapon=NETFIELD_REP_START, \
+		NETFIELD_REP_END=CurrentWeapon	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_INCLASS \
@@ -50,7 +62,13 @@ private: \
 	friend struct Z_Construct_UClass_ACGCharacter_Statics; \
 public: \
 	DECLARE_CLASS(ACGCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/CoopGame"), NO_API) \
-	DECLARE_SERIALIZER(ACGCharacter)
+	DECLARE_SERIALIZER(ACGCharacter) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		CurrentWeapon=NETFIELD_REP_START, \
+		NETFIELD_REP_END=CurrentWeapon	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_STANDARD_CONSTRUCTORS \
@@ -80,10 +98,13 @@ public: \
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraComp() { return STRUCT_OFFSET(ACGCharacter, CameraComp); } \
 	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ACGCharacter, SpringArmComp); } \
+	FORCEINLINE static uint32 __PPO__HealthComp() { return STRUCT_OFFSET(ACGCharacter, HealthComp); } \
 	FORCEINLINE static uint32 __PPO__ZoomInterpSpeed() { return STRUCT_OFFSET(ACGCharacter, ZoomInterpSpeed); } \
 	FORCEINLINE static uint32 __PPO__ZoomedFOV() { return STRUCT_OFFSET(ACGCharacter, ZoomedFOV); } \
 	FORCEINLINE static uint32 __PPO__WeaponSocketName() { return STRUCT_OFFSET(ACGCharacter, WeaponSocketName); } \
-	FORCEINLINE static uint32 __PPO__DefaultWeaponClass() { return STRUCT_OFFSET(ACGCharacter, DefaultWeaponClass); }
+	FORCEINLINE static uint32 __PPO__DefaultWeaponClass() { return STRUCT_OFFSET(ACGCharacter, DefaultWeaponClass); } \
+	FORCEINLINE static uint32 __PPO__CurrentWeapon() { return STRUCT_OFFSET(ACGCharacter, CurrentWeapon); } \
+	FORCEINLINE static uint32 __PPO__bIsDead() { return STRUCT_OFFSET(ACGCharacter, bIsDead); }
 
 
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_14_PROLOG

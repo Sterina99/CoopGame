@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\CoopGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{34C81913-C6C8-4A01-A071-CAEDE669302B}</UniqueIdentifier>
+      <UniqueIdentifier>{4104B88F-A618-4ABF-99B5-AF74D6650660}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CoopGame.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.ignore" />
     <None Include="..\..\CoopGame.code-workspace" />
     <Filter Include="Config">
-      <UniqueIdentifier>{CCD84D25-CDED-4FA3-9966-886033497518}</UniqueIdentifier>
+      <UniqueIdentifier>{7CA21BF7-859E-4A72-98E1-7A2600294608}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\CoopGame">
-      <UniqueIdentifier>{CC9CAC02-E6A3-4F4C-8E70-67EF7E87C09F}</UniqueIdentifier>
+      <UniqueIdentifier>{CA2272CF-3CEA-4514-9264-9F4080389845}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CoopGame\CoopGame.Build.cs">
       <Filter>Source\CoopGame</Filter>
@@ -50,7 +50,7 @@
       <Filter>Source\CoopGame</Filter>
     </ClInclude>
     <Filter Include="Source\CoopGame\Private">
-      <UniqueIdentifier>{5113751A-6903-4A62-8A63-E57FC4F622A1}</UniqueIdentifier>
+      <UniqueIdentifier>{CB4E240C-0FD8-4711-8533-5A25572F7758}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\CoopGame\Private\CGAmmoPickUp.cpp">
       <Filter>Source\CoopGame\Private</Filter>
@@ -70,8 +70,14 @@
     <ClCompile Include="..\..\Source\CoopGame\Private\CGPlayerController.cpp">
       <Filter>Source\CoopGame\Private</Filter>
     </ClCompile>
+    <Filter Include="Source\CoopGame\Private\Components">
+      <UniqueIdentifier>{4894B287-4FB4-4CB7-AABB-54A66928EF7B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CoopGame\Private\Components\CGHealthComponent.cpp">
+      <Filter>Source\CoopGame\Private\Components</Filter>
+    </ClCompile>
     <Filter Include="Source\CoopGame\Public">
-      <UniqueIdentifier>{FA39A1B2-8A95-4DC1-B016-3EABFBAF8AA1}</UniqueIdentifier>
+      <UniqueIdentifier>{B8C3B1A7-38C9-4EB2-95A3-A971D51C4010}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\CoopGame\Public\CGAmmoPickUp.h">
       <Filter>Source\CoopGame\Public</Filter>
@@ -90,6 +96,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\CoopGame\Public\CGPlayerController.h">
       <Filter>Source\CoopGame\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\CoopGame\Public\Components">
+      <UniqueIdentifier>{66A12C95-030D-437C-A220-D59E1E4B8900}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\CoopGame\Public\Components\CGHealthComponent.h">
+      <Filter>Source\CoopGame\Public\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
