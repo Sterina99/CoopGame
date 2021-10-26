@@ -158,6 +158,7 @@ void ACGCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(ACGCharacter, CurrentWeapon);
+	DOREPLIFETIME(ACGCharacter, bIsDead);
 }
 int ACGCharacter::GetAmmos()
 {

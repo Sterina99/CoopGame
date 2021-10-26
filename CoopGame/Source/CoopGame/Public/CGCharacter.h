@@ -66,7 +66,7 @@ protected:
 	float DefaultFOV;
 	bool bIsZooming;
 	bool bIsReloading;
-	UPROPERTY(BlueprintReadOnly, Category = "Player")
+	UPROPERTY(Replicated,BlueprintReadOnly, Category = "Player")
 	  bool bIsDead;
 	int Magazines;
 

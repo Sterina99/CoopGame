@@ -1,15 +1,18 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (D:\Private\LearningC++\CoopGame).
-  Deleted hot-reload file: D:\Private\LearningC++\CoopGame\CoopGame\Binaries\Win64\UE4Editor-CoopGame-0001.dll
-  Deleted hot-reload file: D:\Private\LearningC++\CoopGame\CoopGame\Binaries\Win64\UE4Editor-CoopGame-0001.pdb
-  Deleted hot-reload file: D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0001.lib
+  Parsing headers for CoopGameEditor
+    Running UnrealHeaderTool "D:\Private\LearningC++\CoopGame\CoopGame\CoopGame.uproject" "D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\CoopGameEditor\Development\CoopGameEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\stefa\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+  LogInit: Display: Loading text-based GConfig....
+  Reflection code generated for CoopGameEditor in 3.1979321 seconds
   Building CoopGameEditor...
   Using Visual Studio 2019 14.29.30136 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 4 actions with 20 processes...
-    [1/4] CGCharacter.cpp
-    [2/4] UE4Editor-CoopGame.lib
-       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame.exp
-    [3/4] UE4Editor-CoopGame.dll
-       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame.suppressed.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame.suppressed.exp
-    [4/4] CoopGameEditor.target
-  Total time in Parallel executor: 6.42 seconds
-  Total execution time: 6.80 seconds
+  Building 6 actions with 20 processes...
+    [1/6] CoopGame.init.gen.cpp
+    [2/6] CGTrackerBot.gen.cpp
+    [3/6] CGTrackerBot.cpp
+    [4/6] UE4Editor-CoopGame-0005.lib
+       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0005.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0005.exp
+    [5/6] UE4Editor-CoopGame-0005.dll
+       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0005.suppressed.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0005.suppressed.exp
+    [6/6] CoopGameEditor.target
+  Total time in Parallel executor: 3.28 seconds
+  Total execution time: 7.04 seconds

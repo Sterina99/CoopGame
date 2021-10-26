@@ -505,7 +505,7 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 	{
 		((ACGCharacter*)Obj)->bIsDead = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead = { "bIsDead", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ACGCharacter), &Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead_SetBit, METADATA_PARAMS(Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead = { "bIsDead", nullptr, (EPropertyFlags)0x0020080000000034, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ACGCharacter), &Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead_SetBit, METADATA_PARAMS(Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGCharacter_Statics::NewProp_bIsDead_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACGCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGCharacter_Statics::NewProp_CameraComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGCharacter_Statics::NewProp_SpringArmComp,
@@ -544,7 +544,7 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGCharacter, 1020072226);
+	IMPLEMENT_CLASS(ACGCharacter, 2870097882);
 	template<> COOPGAME_API UClass* StaticClass<ACGCharacter>()
 	{
 		return ACGCharacter::StaticClass();
@@ -554,9 +554,11 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 	void ACGCharacter::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
 		static const FName Name_CurrentWeapon(TEXT("CurrentWeapon"));
+		static const FName Name_bIsDead(TEXT("bIsDead"));
 
 		const bool bIsValid = true
-			&& Name_CurrentWeapon == ClassReps[(int32)ENetFields_Private::CurrentWeapon].Property->GetFName();
+			&& Name_CurrentWeapon == ClassReps[(int32)ENetFields_Private::CurrentWeapon].Property->GetFName()
+			&& Name_bIsDead == ClassReps[(int32)ENetFields_Private::bIsDead].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ACGCharacter"));
 	}
