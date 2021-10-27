@@ -59,3 +59,6 @@ D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\Impo
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavigationSystem.generated.h
 D:\EpicGames\UE_4.27\Engine\Source\Runtime\NavigationSystem\Public\NavigationPath.h
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavigationPath.generated.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\Components/CGHealthComponent.h
+D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGHealthComponent.generated.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h

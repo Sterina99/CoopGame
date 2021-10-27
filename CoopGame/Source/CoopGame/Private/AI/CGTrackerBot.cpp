@@ -4,11 +4,12 @@
 #include "AI/CGTrackerBot.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
-
-
+#include "Components/CGHealthComponent.h"
+#include "DrawDebugHelpers.h"
 // Sets default values
 ACGTrackerBot::ACGTrackerBot()
 {
@@ -18,9 +19,13 @@ ACGTrackerBot::ACGTrackerBot()
 	BaseMesh->SetCanEverAffectNavigation(false);
 	BaseMesh->SetSimulatePhysics(true);
 	RootComponent = BaseMesh;
+
+	HealthComp = CreateDefaultSubobject<UCGHealthComponent>(TEXT("Health Comp"));
+	HealthComp->OnHealthChanged.AddDynamic(this, &ACGTrackerBot::HandleTakeDamage);
 	bUseVelocityChange = true;
 	RequiredDistanceToTarget = 100.f;
 	SpeedForce = 1000.f;
+	bIsExploded = false;
 }
 
 // Called when the game starts or when spawned
@@ -29,6 +34,25 @@ void ACGTrackerBot::BeginPlay()
 	Super::BeginPlay();
 	//Initial MoveTo
 	FVector NextPoint = GetNextPathPoint();
+}
+
+
+void ACGTrackerBot::HandleTakeDamage(UCGHealthComponent* OwningHealthComp, float Health, float HealthDelta, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
+{
+	//explode on HP==0;
+	//TODO Pulse materila on hit
+	if (MatInst == nullptr) {
+		MatInst = BaseMesh->CreateAndSetMaterialInstanceDynamicFromMaterial(0, BaseMesh->GetMaterial(0));
+	}
+
+	if (MatInst)
+	{
+		MatInst->SetScalarParameterValue("LastTimeDamageTaken", GetWorld()->TimeSeconds);
+	}
+	UE_LOG(LogTemp, Log, TEXT("Health %s of %s"), *FString::SanitizeFloat(Health), *GetName());
+	if (Health <= 0) {
+		SelfDestruct();
+	}
 }
 
 FVector ACGTrackerBot::GetNextPathPoint()
@@ -45,6 +69,25 @@ FVector ACGTrackerBot::GetNextPathPoint()
 		}
 	}
 	return GetActorLocation();
+}
+
+void ACGTrackerBot::SelfDestruct()
+{
+	if (bIsExploded){
+		return;
+	}
+
+	bIsExploded = true;
+
+	UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionEffect, GetActorLocation());
+
+	TArray<AActor*> IgnoredActors;
+	IgnoredActors.Add(this);
+
+	UGameplayStatics::ApplyRadialDamage(this, ExplosionDamage, GetActorLocation(), DamageRadius, nullptr, IgnoredActors, this, GetInstigatorController(), true);
+	DrawDebugSphere(GetWorld(), GetActorLocation(), DamageRadius, 12, FColor::Yellow, false, 5.f);
+
+	Destroy();
 }
 
 // Called every frame
