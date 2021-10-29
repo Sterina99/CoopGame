@@ -144,6 +144,7 @@ void ACGTrackerBot::Tick(float DeltaTime)
 
 void ACGTrackerBot::NotifyActorBeginOverlap(AActor* OtherActor)
 {
+	Super::NotifyActorBeginOverlap(OtherActor);
 	if (!bStartedSelfDestruction) {
 
 	ACGCharacter* PlayerPawn = Cast<ACGCharacter>(OtherActor);
