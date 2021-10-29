@@ -30,6 +30,7 @@ protected:
 	USpringArmComponent* SpringArmComp;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
 	UCGHealthComponent* HealthComp;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Camera")
 		float ZoomInterpSpeed;
 	UPROPERTY(EditDefaultsOnly,Category = "Camera")

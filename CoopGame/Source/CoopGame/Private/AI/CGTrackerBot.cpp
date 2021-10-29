@@ -9,7 +9,10 @@
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
 #include "Components/CGHealthComponent.h"
+#include "Components/SphereComponent.h"
 #include "DrawDebugHelpers.h"
+#include "CGCharacter.h"
+#include "Sound/SoundCue.h"
 // Sets default values
 ACGTrackerBot::ACGTrackerBot()
 {
@@ -22,10 +25,19 @@ ACGTrackerBot::ACGTrackerBot()
 
 	HealthComp = CreateDefaultSubobject<UCGHealthComponent>(TEXT("Health Comp"));
 	HealthComp->OnHealthChanged.AddDynamic(this, &ACGTrackerBot::HandleTakeDamage);
+
+	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere Comp"));
+	SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	SphereComp->SetCollisionResponseToAllChannels(ECR_Ignore);
+	SphereComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
+	SphereComp->SetSphereRadius(200.f);
+	SphereComp->SetupAttachment(RootComponent);
+
 	bUseVelocityChange = true;
 	RequiredDistanceToTarget = 100.f;
 	SpeedForce = 1000.f;
 	bIsExploded = false;
+	bStartedSelfDestruction = false;
 }
 
 // Called when the game starts or when spawned
@@ -57,6 +69,8 @@ void ACGTrackerBot::HandleTakeDamage(UCGHealthComponent* OwningHealthComp, float
 
 FVector ACGTrackerBot::GetNextPathPoint()
 {
+	if (GetLocalRole() != ROLE_Authority) return FVector::ZeroVector;
+	//only run this on server
 	ACharacter* PlayerPawn = UGameplayStatics::GetPlayerCharacter(this,0);
 
 	if (PlayerPawn) {
@@ -79,26 +93,42 @@ void ACGTrackerBot::SelfDestruct()
 
 	bIsExploded = true;
 
+	//Only visual/sound effect runs on both client and server (this case...when playing using dedicated servers, only clients uses effects)
 	UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionEffect, GetActorLocation());
+	UGameplayStatics::SpawnSoundAtLocation(this, ExplosionSound, GetActorLocation());
+	BaseMesh->SetVisibility(false, true);
+	BaseMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	TArray<AActor*> IgnoredActors;
-	IgnoredActors.Add(this);
 
-	UGameplayStatics::ApplyRadialDamage(this, ExplosionDamage, GetActorLocation(), DamageRadius, nullptr, IgnoredActors, this, GetInstigatorController(), true);
-	DrawDebugSphere(GetWorld(), GetActorLocation(), DamageRadius, 12, FColor::Yellow, false, 5.f);
+	if (GetLocalRole() == ROLE_Authority) {
 
-	Destroy();
+		TArray<AActor*> IgnoredActors;
+		IgnoredActors.Add(this);
+
+		UGameplayStatics::ApplyRadialDamage(this, ExplosionDamage, GetActorLocation(), DamageRadius, nullptr, IgnoredActors, this, GetInstigatorController(), true);
+		DrawDebugSphere(GetWorld(), GetActorLocation(), DamageRadius, 12, FColor::Yellow, false, 5.f);
+
+		SetLifeSpan(1.f);
+	}
+}
+
+void ACGTrackerBot::DamageSelf()
+{
+	UGameplayStatics::ApplyDamage(this, 20.f, GetInstigatorController(), this, nullptr);
 }
 
 // Called every frame
 void ACGTrackerBot::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (GetLocalRole() != ROLE_Authority) return;
+
+	//Only run this on Server// 
 
 	FVector DistanceToTarget = GetActorLocation() - NextPathPoint;
 	//Keeplooking for new position to moveTo
 
-	if (DistanceToTarget.Size()<RequiredDistanceToTarget){
+	if (DistanceToTarget.Size()<RequiredDistanceToTarget && !bIsExploded){
 
 		NextPathPoint = GetNextPathPoint();
 		
@@ -108,6 +138,26 @@ void ACGTrackerBot::Tick(float DeltaTime)
 		ForceDirection.Normalize();
 		ForceDirection *= SpeedForce;
 		BaseMesh->AddForce(ForceDirection, NAME_None, bUseVelocityChange);
+	}
+	//Up till here
+}
+
+void ACGTrackerBot::NotifyActorBeginOverlap(AActor* OtherActor)
+{
+	if (!bStartedSelfDestruction) {
+
+	ACGCharacter* PlayerPawn = Cast<ACGCharacter>(OtherActor);
+		if (PlayerPawn && !bIsExploded) {
+
+			if (GetLocalRole() == ROLE_Authority) {
+
+				GetWorldTimerManager().SetTimer(TimerHandle_DamageSelf,this,&ACGTrackerBot::DamageSelf,0.5f,true,0.0f);
+			}
+
+			bStartedSelfDestruction = true;
+
+			UGameplayStatics::SpawnSoundAttached(SelfDestructionSound,RootComponent);
+		}
 	}
 }
 

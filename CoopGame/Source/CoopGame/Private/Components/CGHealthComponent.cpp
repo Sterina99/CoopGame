@@ -3,6 +3,7 @@
 
 #include "Components/CGHealthComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "..\..\Public\Components\CGHealthComponent.h"
 // Sets default values for this component's properties
 UCGHealthComponent::UCGHealthComponent()
 {
@@ -35,6 +36,12 @@ void UCGHealthComponent::BeginPlay()
 		Health = DefaultHealth;
 }
 
+
+void UCGHealthComponent::OnRep_Health(float OldHealth)
+{
+	float Damage = OldHealth - Health;
+	OnHealthChanged.Broadcast(this, Health, Damage, nullptr, nullptr, nullptr);
+}
 
 void UCGHealthComponent::HandleTakeAnyDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy,
 	AActor* DamageCauser)

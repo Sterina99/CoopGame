@@ -1,12 +1,11 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (D:\Private\LearningC++\CoopGame).
   Building CoopGameEditor...
   Using Visual Studio 2019 14.29.30136 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 4 actions with 20 processes...
-    [1/4] CGTrackerBot.cpp
-    [2/4] UE4Editor-CoopGame-0015.lib
-       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0015.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0015.exp
-    [3/4] UE4Editor-CoopGame-0015.dll
-       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0015.suppressed.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0015.suppressed.exp
-    [4/4] CoopGameEditor.target
-  Total time in Parallel executor: 5.07 seconds
-  Total execution time: 5.60 seconds
+  Building 3 actions with 20 processes...
+    [1/3] UE4Editor-CoopGame-0025.lib
+       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0025.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0025.exp
+    [2/3] UE4Editor-CoopGame-0025.dll
+       Creating library D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0025.suppressed.lib and object D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\UE4Editor-CoopGame-0025.suppressed.exp
+    [3/3] CoopGameEditor.target
+  Total time in Parallel executor: 1.66 seconds
+  Total execution time: 2.18 seconds

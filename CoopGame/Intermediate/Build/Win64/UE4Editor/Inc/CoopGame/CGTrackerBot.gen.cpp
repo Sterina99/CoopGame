@@ -22,7 +22,9 @@ void EmptyLinkFunctionForGeneratedCodeCGTrackerBot() {}
 	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ACGTrackerBot::execHandleTakeDamage)
 	{
@@ -133,6 +135,10 @@ void EmptyLinkFunctionForGeneratedCodeCGTrackerBot() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HealthComp;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SphereComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SphereComp;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RequiredDistanceToTarget_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RequiredDistanceToTarget;
@@ -157,6 +163,14 @@ void EmptyLinkFunctionForGeneratedCodeCGTrackerBot() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ExplosionDamage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ExplosionDamage;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SelfDestructionSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SelfDestructionSound;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ExplosionSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ExplosionSound;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -192,6 +206,14 @@ void EmptyLinkFunctionForGeneratedCodeCGTrackerBot() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_HealthComp = { "HealthComp", nullptr, (EPropertyFlags)0x00200800000b0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, HealthComp), Z_Construct_UClass_UCGHealthComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_HealthComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_HealthComp_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SphereComp_MetaData[] = {
+		{ "Category", "Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SphereComp = { "SphereComp", nullptr, (EPropertyFlags)0x00200800000b0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, SphereComp), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SphereComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SphereComp_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_RequiredDistanceToTarget_MetaData[] = {
 		{ "Category", "TrackerBot" },
 		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
@@ -218,34 +240,51 @@ void EmptyLinkFunctionForGeneratedCodeCGTrackerBot() {}
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SpeedForce = { "SpeedForce", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, SpeedForce), METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SpeedForce_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SpeedForce_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionEffect_MetaData[] = {
-		{ "Category", "Explosion" },
+		{ "Category", "TrackerBot" },
 		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionEffect = { "ExplosionEffect", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, ExplosionEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionEffect_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_DamageRadius_MetaData[] = {
-		{ "Category", "Explosion" },
+		{ "Category", "TrackerBot" },
 		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_DamageRadius = { "DamageRadius", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, DamageRadius), METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_DamageRadius_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_DamageRadius_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionDamage_MetaData[] = {
-		{ "Category", "Explosion" },
+		{ "Category", "TrackerBot" },
 		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionDamage = { "ExplosionDamage", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, ExplosionDamage), METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionDamage_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SelfDestructionSound_MetaData[] = {
+		{ "Category", "TrackerBot" },
+		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SelfDestructionSound = { "SelfDestructionSound", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, SelfDestructionSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SelfDestructionSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SelfDestructionSound_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionSound_MetaData[] = {
+		{ "Category", "TrackerBot" },
+		{ "ModuleRelativePath", "Public/AI/CGTrackerBot.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionSound = { "ExplosionSound", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGTrackerBot, ExplosionSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionSound_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACGTrackerBot_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_BaseMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_HealthComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SphereComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_RequiredDistanceToTarget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_bUseVelocityChange,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SpeedForce,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_DamageRadius,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionDamage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_SelfDestructionSound,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGTrackerBot_Statics::NewProp_ExplosionSound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACGTrackerBot_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACGTrackerBot>::IsAbstract,
@@ -274,7 +313,7 @@ void EmptyLinkFunctionForGeneratedCodeCGTrackerBot() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGTrackerBot, 2431368317);
+	IMPLEMENT_CLASS(ACGTrackerBot, 4120554018);
 	template<> COOPGAME_API UClass* StaticClass<ACGTrackerBot>()
 	{
 		return ACGTrackerBot::StaticClass();

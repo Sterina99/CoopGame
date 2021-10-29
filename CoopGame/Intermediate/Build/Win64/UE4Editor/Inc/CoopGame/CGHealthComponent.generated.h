@@ -43,12 +43,14 @@ static inline void FOnHealthChangedSignature_DelegateWrapper(const FMulticastScr
 #define CoopGame_Source_CoopGame_Public_Components_CGHealthComponent_h_14_SPARSE_DATA
 #define CoopGame_Source_CoopGame_Public_Components_CGHealthComponent_h_14_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execHandleTakeAnyDamage);
+	DECLARE_FUNCTION(execHandleTakeAnyDamage); \
+	DECLARE_FUNCTION(execOnRep_Health);
 
 
 #define CoopGame_Source_CoopGame_Public_Components_CGHealthComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execHandleTakeAnyDamage);
+	DECLARE_FUNCTION(execHandleTakeAnyDamage); \
+	DECLARE_FUNCTION(execOnRep_Health);
 
 
 #define CoopGame_Source_CoopGame_Public_Components_CGHealthComponent_h_14_INCLASS_NO_PURE_DECLS \

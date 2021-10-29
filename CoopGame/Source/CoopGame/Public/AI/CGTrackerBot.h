@@ -9,6 +9,8 @@
 class UCGHealthComponent;
 class UMaterialInstanceDynamic;
 class UParticleSystem;
+class USphereComponent;
+class USoundCue;
 UCLASS()
 class COOPGAME_API ACGTrackerBot : public APawn
 {
@@ -25,6 +27,8 @@ protected:
 	UStaticMeshComponent* BaseMesh;
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
 		UCGHealthComponent* HealthComp;
+	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
+		USphereComponent* SphereComp;
 
 	UFUNCTION()
 		void HandleTakeDamage(UCGHealthComponent* OwningHealthComp, float Health, float HealthDelta, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
@@ -43,20 +47,34 @@ protected:
 
 	void SelfDestruct();
 
-	UPROPERTY(EditAnywhere, Category = "Explosion")
+	UPROPERTY(EditAnywhere, Category = "TrackerBot")
 	UParticleSystem* ExplosionEffect;
 
 
-	UPROPERTY(EditAnywhere, Category = "Explosion")
+	UPROPERTY(EditAnywhere, Category = "TrackerBot")
 		float DamageRadius;
-	UPROPERTY(EditAnywhere, Category = "Explosion")
+	UPROPERTY(EditAnywhere, Category = "TrackerBot")
 		float ExplosionDamage;
 
+	UPROPERTY(EditAnywhere, Category = "TrackerBot")
+	USoundCue* SelfDestructionSound;
+	UPROPERTY(EditAnywhere, Category = "TrackerBot")
+	USoundCue* ExplosionSound;
+
 	bool bIsExploded;
+	bool bStartedSelfDestruction;
+
+
+	//TO self destruct
+	void DamageSelf();
+
+	FTimerHandle TimerHandle_DamageSelf;
+	//
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 };

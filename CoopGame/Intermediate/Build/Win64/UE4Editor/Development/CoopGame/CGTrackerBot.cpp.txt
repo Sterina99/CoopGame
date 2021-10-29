@@ -61,4 +61,14 @@ D:\EpicGames\UE_4.27\Engine\Source\Runtime\NavigationSystem\Public\NavigationPat
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavigationPath.generated.h
 D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\Components/CGHealthComponent.h
 D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGHealthComponent.generated.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
 D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGCharacter.h
+D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGCharacter.generated.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundNode.generated.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundCue.generated.h
