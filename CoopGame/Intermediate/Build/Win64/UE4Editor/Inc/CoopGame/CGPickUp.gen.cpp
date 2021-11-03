@@ -19,6 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeCGPickUp() {}
 	UPackage* Z_Construct_UPackage__Script_CoopGame();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDecalComponent_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	COOPGAME_API UClass* Z_Construct_UClass_ACGPowerUp_NoRegister();
 // End Cross Module References
 	void ACGPickUp::StaticRegisterNativesACGPickUp()
 	{
@@ -41,6 +43,14 @@ void EmptyLinkFunctionForGeneratedCodeCGPickUp() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DecalComp_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DecalComp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PowerupClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_PowerupClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CooldownDuration_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_CooldownDuration;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -71,9 +81,25 @@ void EmptyLinkFunctionForGeneratedCodeCGPickUp() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGPickUp_Statics::NewProp_DecalComp = { "DecalComp", nullptr, (EPropertyFlags)0x00200800000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGPickUp, DecalComp), Z_Construct_UClass_UDecalComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGPickUp_Statics::NewProp_DecalComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGPickUp_Statics::NewProp_DecalComp_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGPickUp_Statics::NewProp_PowerupClass_MetaData[] = {
+		{ "Category", "PickUp" },
+		{ "ModuleRelativePath", "Public/CGPickUp.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACGPickUp_Statics::NewProp_PowerupClass = { "PowerupClass", nullptr, (EPropertyFlags)0x0024080000000801, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGPickUp, PowerupClass), Z_Construct_UClass_ACGPowerUp_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ACGPickUp_Statics::NewProp_PowerupClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGPickUp_Statics::NewProp_PowerupClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGPickUp_Statics::NewProp_CooldownDuration_MetaData[] = {
+		{ "Category", "PickUp" },
+		{ "ModuleRelativePath", "Public/CGPickUp.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGPickUp_Statics::NewProp_CooldownDuration = { "CooldownDuration", nullptr, (EPropertyFlags)0x0020080000000801, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGPickUp, CooldownDuration), METADATA_PARAMS(Z_Construct_UClass_ACGPickUp_Statics::NewProp_CooldownDuration_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGPickUp_Statics::NewProp_CooldownDuration_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACGPickUp_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGPickUp_Statics::NewProp_SphereComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGPickUp_Statics::NewProp_DecalComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGPickUp_Statics::NewProp_PowerupClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGPickUp_Statics::NewProp_CooldownDuration,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACGPickUp_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACGPickUp>::IsAbstract,
@@ -102,7 +128,7 @@ void EmptyLinkFunctionForGeneratedCodeCGPickUp() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGPickUp, 1604971877);
+	IMPLEMENT_CLASS(ACGPickUp, 1530275888);
 	template<> COOPGAME_API UClass* StaticClass<ACGPickUp>()
 	{
 		return ACGPickUp::StaticClass();

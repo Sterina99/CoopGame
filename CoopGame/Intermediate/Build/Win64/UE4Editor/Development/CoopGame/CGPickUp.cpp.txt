@@ -7,3 +7,5 @@ D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeC
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
 D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/DecalComponent.h
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DecalComponent.generated.h
+D:\Private\LearningC++\CoopGame\CoopGame\Source\CoopGame\Public\CGPowerUp.h
+D:\Private\LearningC++\CoopGame\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\CGPowerUp.generated.h

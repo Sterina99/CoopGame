@@ -60,7 +60,9 @@ public: \
 
 #define CoopGame_Source_CoopGame_Public_CGPickUp_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SphereComp() { return STRUCT_OFFSET(ACGPickUp, SphereComp); } \
-	FORCEINLINE static uint32 __PPO__DecalComp() { return STRUCT_OFFSET(ACGPickUp, DecalComp); }
+	FORCEINLINE static uint32 __PPO__DecalComp() { return STRUCT_OFFSET(ACGPickUp, DecalComp); } \
+	FORCEINLINE static uint32 __PPO__PowerupClass() { return STRUCT_OFFSET(ACGPickUp, PowerupClass); } \
+	FORCEINLINE static uint32 __PPO__CooldownDuration() { return STRUCT_OFFSET(ACGPickUp, CooldownDuration); }
 
 
 #define CoopGame_Source_CoopGame_Public_CGPickUp_h_12_PROLOG

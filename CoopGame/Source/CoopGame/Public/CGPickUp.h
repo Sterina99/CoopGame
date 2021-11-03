@@ -8,7 +8,7 @@
 
 class USphereComponent;
 class UDecalComponent;
-
+class ACGPowerUp;
 UCLASS()
 class COOPGAME_API ACGPickUp : public AActor
 {
@@ -27,6 +27,17 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UDecalComponent* DecalComp;
+
+	UPROPERTY(EditInstanceOnly, Category = "PickUp")
+		TSubclassOf<ACGPowerUp> PowerupClass;
+
+
+	UPROPERTY(EditInstanceOnly, Category = "PickUp")
+		float CooldownDuration;
+
+	void Respawn();
+	FTimerHandle TimerHandle_PowerUp;
+	ACGPowerUp* PowerUpInstance;
 
 public:	
 

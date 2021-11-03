@@ -31,12 +31,21 @@ protected:
 	int32 TicksProcessed;
 	UFUNCTION()
 		void OnTickPowerUp();
+	
+	UPROPERTY(ReplicatedUsing = OnRep_PowerupActive)
+		bool bIsPowerupActive;
+
+	UFUNCTION()
+	void OnRep_PowerupActive();
+	UFUNCTION(BlueprintImplementableEvent, Category = "PowerUp")
+	void OnPowerupStateChanged(bool bNewIsActive);
 public:	
 	
-	void ActivatePowerUp();
+	void ActivatePowerUp(AActor* ActivateFor);
+	virtual void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "PowerUp")
-		void OnActivated();
+		void OnActivated(AActor* ActivateFor);
 	UFUNCTION(BlueprintImplementableEvent, Category = "PowerUp")
 		void OnPowerUpTicked();
 	UFUNCTION(BlueprintImplementableEvent, Category = "PowerUp")

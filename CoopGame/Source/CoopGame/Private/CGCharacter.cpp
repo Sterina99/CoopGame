@@ -143,6 +143,8 @@ ACGGun* ACGCharacter::GetCurrentWeapon()
 }
 FName ACGCharacter::GetCurrentWeaponName()
 {
+	if (CurrentWeapon == nullptr) return TEXT("Empty");
+
 	return CurrentWeapon->GetFName();
 }
 //BluePrintFunctions
@@ -162,6 +164,7 @@ void ACGCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 }
 int ACGCharacter::GetAmmos()
 {
+	if (CurrentWeapon == nullptr) return 0;
 	return CurrentWeapon->Ammos;
 }
 
