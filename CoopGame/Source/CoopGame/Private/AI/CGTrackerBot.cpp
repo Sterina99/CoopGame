@@ -76,7 +76,7 @@ FVector ACGTrackerBot::GetNextPathPoint()
 	if (PlayerPawn) {
 		UNavigationPath* NavPath=	UNavigationSystemV1::FindPathToActorSynchronously(this, GetActorLocation(), PlayerPawn);
 		UE_LOG(LogTemp, Warning, TEXT("Tracking"));
-		if (NavPath->PathPoints.Num() > 1) {
+		if (NavPath && NavPath->PathPoints.Num() > 1) {
 			UE_LOG(LogTemp, Warning, TEXT("found u"));
 
 			return NavPath->PathPoints[1];

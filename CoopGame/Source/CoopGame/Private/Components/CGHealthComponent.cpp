@@ -3,7 +3,9 @@
 
 #include "Components/CGHealthComponent.h"
 #include "Net/UnrealNetwork.h"
-#include "..\..\Public\Components\CGHealthComponent.h"
+#include "CGPlayerState.h"
+#include "CGGameMode.h"
+
 // Sets default values for this component's properties
 UCGHealthComponent::UCGHealthComponent()
 {
@@ -60,6 +62,18 @@ void UCGHealthComponent::HandleTakeAnyDamage(AActor* DamagedActor, float Damage,
 	}
 
 	OnHealthChanged.Broadcast(this, Health, Damage, DamageType, InstigatedBy, DamageCauser);
+
+	if (bIsDead) {
+		ACGGameMode* GM = Cast<ACGGameMode>(GetWorld()->GetAuthGameMode());
+		if (GM) {
+			GM->OnActorKilled.Broadcast(GetOwner(), DamageCauser, InstigatedBy);
+		}
+	}
+}
+
+float UCGHealthComponent::GetHealth() const
+{
+	return Health;
 }
 
 void UCGHealthComponent::Heal(float HealAmount)
