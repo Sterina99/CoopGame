@@ -113,6 +113,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__FleshImpactEffect() { return STRUCT_OFFSET(ACGGun, FleshImpactEffect); } \
 	FORCEINLINE static uint32 __PPO__TracerEffect() { return STRUCT_OFFSET(ACGGun, TracerEffect); } \
 	FORCEINLINE static uint32 __PPO__MaxAmmos() { return STRUCT_OFFSET(ACGGun, MaxAmmos); } \
+	FORCEINLINE static uint32 __PPO__BulletSpread() { return STRUCT_OFFSET(ACGGun, BulletSpread); } \
 	FORCEINLINE static uint32 __PPO__HitScanTrace() { return STRUCT_OFFSET(ACGGun, HitScanTrace); }
 
 

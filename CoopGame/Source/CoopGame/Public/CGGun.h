@@ -83,6 +83,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 		int MaxAmmos;
+	//bulletSpread in degrees
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon", meta= (ClampMin=0.0f))
+		float BulletSpread;
 
 	float TimeBetweenShots;
 	float LastFireTime;

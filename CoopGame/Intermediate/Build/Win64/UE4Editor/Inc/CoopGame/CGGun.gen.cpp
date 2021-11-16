@@ -334,6 +334,10 @@ static struct FScriptStruct_CoopGame_StaticRegisterNativesFHitScanTrace
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_MaxAmmos;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BulletSpread_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BulletSpread;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HitScanTrace_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HitScanTrace;
@@ -454,6 +458,16 @@ static struct FScriptStruct_CoopGame_StaticRegisterNativesFHitScanTrace
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos = { "MaxAmmos", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, MaxAmmos), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_BulletSpread_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "ClampMin", "0.000000" },
+		{ "Comment", "//bulletSpread in degrees\n" },
+		{ "ModuleRelativePath", "Public/CGGun.h" },
+		{ "ToolTip", "bulletSpread in degrees" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACGGun_Statics::NewProp_BulletSpread = { "BulletSpread", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGGun, BulletSpread), METADATA_PARAMS(Z_Construct_UClass_ACGGun_Statics::NewProp_BulletSpread_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGGun_Statics::NewProp_BulletSpread_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGGun_Statics::NewProp_HitScanTrace_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CGGun.h" },
 	};
@@ -473,6 +487,7 @@ static struct FScriptStruct_CoopGame_StaticRegisterNativesFHitScanTrace
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_FleshImpactEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_TracerEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_MaxAmmos,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_BulletSpread,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACGGun_Statics::NewProp_HitScanTrace,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACGGun_Statics::StaticCppClassTypeInfo = {
@@ -502,7 +517,7 @@ static struct FScriptStruct_CoopGame_StaticRegisterNativesFHitScanTrace
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGGun, 1844544325);
+	IMPLEMENT_CLASS(ACGGun, 2840312091);
 	template<> COOPGAME_API UClass* StaticClass<ACGGun>()
 	{
 		return ACGGun::StaticClass();

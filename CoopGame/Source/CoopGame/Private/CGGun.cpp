@@ -51,7 +51,10 @@ void ACGGun::Fire()
 		MyOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
 		FVector ShotDirection = EyeRotation.Vector();
-		FVector TraceEnd = EyeLocation + EyeRotation.Vector() * 10000;
+		float HalfRad = FMath::DegreesToRadians(BulletSpread);
+		ShotDirection= FMath::VRandCone(ShotDirection, HalfRad, HalfRad);
+
+		FVector TraceEnd = EyeLocation + (ShotDirection * 10000);
 		FCollisionQueryParams QueryParams;
 		QueryParams.AddIgnoredActor(MyOwner);
 		QueryParams.AddIgnoredActor(this);
@@ -75,13 +78,13 @@ void ACGGun::Fire()
 				float ActualDamage = BaseDamage;
 				 SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
 				if (SurfaceType == SURFACE_FLESHVULNERABLE) 	ActualDamage *= 4.f;
-				UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), this, DamageType);
+				UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), MyOwner, DamageType);
 				PlayImpactEffects(SurfaceType, Hit.ImpactPoint);
 				TracerEndPoint = Hit.ImpactPoint;
 				
 			}
 
-			DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 1.f, 0, 1.f);
+		//	DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 1.f, 0, 1.f);
 			PlayFireEffects(TracerEndPoint);
 		}
 		else {
@@ -109,7 +112,8 @@ void ACGGun::Fire()
 					SelectedEffect = DefaulImpactEffect;
 					break;
 				}
-				UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), this, DamageType);
+				UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), MyOwner, DamageType);
+
 				if (SelectedEffect) {
 					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, Hit.ImpactPoint, Hit.ImpactNormal.Rotation());
 
@@ -121,7 +125,7 @@ void ACGGun::Fire()
 				}
 			}
 
-			DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 1.f, 0, 1.f);
+		//	DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 1.f, 0, 1.f);
 			PlayFireEffects(TracerEndPoint);
 
 			if (GetLocalRole() == ROLE_Authority) {

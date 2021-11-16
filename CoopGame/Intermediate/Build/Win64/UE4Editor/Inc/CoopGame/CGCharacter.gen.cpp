@@ -26,6 +26,20 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 // End Cross Module References
+	DEFINE_FUNCTION(ACGCharacter::execStopFire)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StopFire();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACGCharacter::execStartFire)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartFire();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ACGCharacter::execIsZooming)
 	{
 		P_FINISH;
@@ -92,6 +106,8 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 			{ "IsReloading", &ACGCharacter::execIsReloading },
 			{ "IsZooming", &ACGCharacter::execIsZooming },
 			{ "OnHealthChanged", &ACGCharacter::execOnHealthChanged },
+			{ "StartFire", &ACGCharacter::execStartFire },
+			{ "StopFire", &ACGCharacter::execStopFire },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -365,6 +381,52 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ACGCharacter_StartFire_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_StartFire_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_StartFire_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "StartFire", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_StartFire_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_StartFire_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_StartFire()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_StartFire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACGCharacter_StopFire_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACGCharacter_StopFire_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "Public/CGCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACGCharacter_StopFire_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACGCharacter, nullptr, "StopFire", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACGCharacter_StopFire_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACGCharacter_StopFire_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACGCharacter_StopFire()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACGCharacter_StopFire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ACGCharacter_NoRegister()
 	{
 		return ACGCharacter::StaticClass();
@@ -429,6 +491,8 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		{ &Z_Construct_UFunction_ACGCharacter_IsReloading, "IsReloading" }, // 4259409634
 		{ &Z_Construct_UFunction_ACGCharacter_IsZooming, "IsZooming" }, // 2167160993
 		{ &Z_Construct_UFunction_ACGCharacter_OnHealthChanged, "OnHealthChanged" }, // 1454211759
+		{ &Z_Construct_UFunction_ACGCharacter_StartFire, "StartFire" }, // 1521072265
+		{ &Z_Construct_UFunction_ACGCharacter_StopFire, "StopFire" }, // 620666641
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGCharacter_Statics::Class_MetaDataParams[] = {
@@ -460,7 +524,7 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		{ "ModuleRelativePath", "Public/CGCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGCharacter_Statics::NewProp_HealthComp = { "HealthComp", nullptr, (EPropertyFlags)0x002008000008001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGCharacter, HealthComp), Z_Construct_UClass_UCGHealthComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGCharacter_Statics::NewProp_HealthComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGCharacter_Statics::NewProp_HealthComp_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACGCharacter_Statics::NewProp_HealthComp = { "HealthComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACGCharacter, HealthComp), Z_Construct_UClass_UCGHealthComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACGCharacter_Statics::NewProp_HealthComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACGCharacter_Statics::NewProp_HealthComp_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACGCharacter_Statics::NewProp_ZoomInterpSpeed_MetaData[] = {
 		{ "Category", "Camera" },
@@ -544,7 +608,7 @@ void EmptyLinkFunctionForGeneratedCodeCGCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGCharacter, 2870097882);
+	IMPLEMENT_CLASS(ACGCharacter, 3804119563);
 	template<> COOPGAME_API UClass* StaticClass<ACGCharacter>()
 	{
 		return ACGCharacter::StaticClass();

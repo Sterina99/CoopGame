@@ -16,7 +16,7 @@ UCGHealthComponent::UCGHealthComponent()
 	bIsDead = false;
 	SetIsReplicatedByDefault(true);
 
-
+	TeamNum = 0;
 	// ...
 }
 
@@ -49,6 +49,11 @@ void UCGHealthComponent::HandleTakeAnyDamage(AActor* DamagedActor, float Damage,
 	AActor* DamageCauser)
 {
 	if (Damage <= 0.0f || bIsDead)
+	{
+		return;
+	}
+
+	if (DamagedActor!=DamageCauser && IsFriendly(DamagedActor, DamageCauser)) 
 	{
 		return;
 	}
@@ -86,6 +91,27 @@ void UCGHealthComponent::Heal(float HealAmount)
 
 	OnHealthChanged.Broadcast(this, Health, -HealAmount, nullptr, nullptr, nullptr);
 
+}
+/// <summary>
+/// if I cannot check the team of one of the two actors, 
+/// assume is friendly fire
+/// </summary>
+/// <param name="ActorA"></param>
+/// <param name="ActorB"></param>
+/// <returns></returns>
+bool UCGHealthComponent::IsFriendly(AActor* ActorA, AActor* ActorB)
+{
+	if (ActorA == nullptr || ActorB == nullptr) {
+
+		return true;
+	}
+	UCGHealthComponent* HealthA = Cast<UCGHealthComponent>(ActorA->GetComponentByClass(UCGHealthComponent::StaticClass()));
+	UCGHealthComponent* HealthB = Cast<UCGHealthComponent>(ActorB->GetComponentByClass(UCGHealthComponent::StaticClass()));
+
+	if (HealthA == nullptr || HealthB == nullptr) {
+		return true;
+	}
+	return HealthA->TeamNum == HealthB->TeamNum;
 }
 
 void UCGHealthComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

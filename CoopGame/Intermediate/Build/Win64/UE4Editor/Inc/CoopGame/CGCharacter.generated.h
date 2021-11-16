@@ -21,6 +21,8 @@ class AActor;
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_SPARSE_DATA
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execStopFire); \
+	DECLARE_FUNCTION(execStartFire); \
 	DECLARE_FUNCTION(execIsZooming); \
 	DECLARE_FUNCTION(execIsReloading); \
 	DECLARE_FUNCTION(execGetMagazines); \
@@ -32,6 +34,8 @@ class AActor;
 
 #define CoopGame_Source_CoopGame_Public_CGCharacter_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execStopFire); \
+	DECLARE_FUNCTION(execStartFire); \
 	DECLARE_FUNCTION(execIsZooming); \
 	DECLARE_FUNCTION(execIsReloading); \
 	DECLARE_FUNCTION(execGetMagazines); \

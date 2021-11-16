@@ -89,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeCGGrenadeLauncher() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACGGrenadeLauncher, 4290625572);
+	IMPLEMENT_CLASS(ACGGrenadeLauncher, 1893550417);
 	template<> COOPGAME_API UClass* StaticClass<ACGGrenadeLauncher>()
 	{
 		return ACGGrenadeLauncher::StaticClass();

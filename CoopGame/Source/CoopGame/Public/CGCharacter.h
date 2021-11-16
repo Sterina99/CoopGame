@@ -28,7 +28,7 @@ protected:
 	UCameraComponent* CameraComp;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USpringArmComponent* SpringArmComp;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UCGHealthComponent* HealthComp;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Camera")
@@ -48,8 +48,7 @@ protected:
 	void BeginCrouch();
 	void EndCrouch();
 
-	void StartFire();
-	void StopFire();
+
 
 	void BeginZoom();
 	void EndZoom();
@@ -92,6 +91,9 @@ public:
 		bool IsReloading();
 	UFUNCTION(BlueprintCallable)
 		bool IsZooming();
-
+	UFUNCTION(BlueprintCallable, Category="Player")
+		void StartFire();
+	UFUNCTION(BlueprintCallable, Category= "Player")
+		void StopFire();
 	virtual void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const;
 };

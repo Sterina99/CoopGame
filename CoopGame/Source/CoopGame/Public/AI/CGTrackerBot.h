@@ -69,8 +69,10 @@ protected:
 	void DamageSelf();
 
 	FTimerHandle TimerHandle_DamageSelf;
-	//
 
+	FTimerHandle TimerHandle_RefreshPath;
+	//
+	void RefreshPath();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
